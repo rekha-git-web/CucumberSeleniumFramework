@@ -74,7 +74,7 @@ public class BasicLocators {
     			      
       WebElement ExpectedField = null;
       for(WebElement field : fields){
-    	 // System.out.println("Here is the field name: " +field.getText());
+    	  System.out.println("Here is the field name: " +field.getText());
             if(field.getText().contains(linkName)){
             	ExpectedField = field;
             }
