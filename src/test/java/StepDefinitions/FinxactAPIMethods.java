@@ -41,6 +41,31 @@ public class FinxactAPIMethods {
 	
 	}
 	
+	public static String finxactPOST(String path)
+	{
+		String URL = baseURL + path;
+		
+	try
+		{
+		String res = RestAssured.given()
+				.header("client_id", "bbfa15adf5ef1c6f7de95a89bddd0a549944ba770612ddc3431500132d0a0e")
+				.header("secret", "31ec8b813a27631eccb84e17")
+				.header("Content-Type", "application/json")
+				.header("Fnx-Header", "{\"identity\":{\"userRoles\":[\"developer\"]}}")
+				.when()
+                .post(URL).asPrettyString();
+               
+               // .prettyPrint();   
+		System.out.println("Response .... " + res);
+		return res.toString();
+		}
+		catch(Exception e) {
+		System.out.println("There is exception..." + e.getMessage());
+		return e.getMessage();
+		}
 	
-
+	}
+	
+	
+	
 }

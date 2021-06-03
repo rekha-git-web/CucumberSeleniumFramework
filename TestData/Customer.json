@@ -1,0 +1,73 @@
+{
+    "party_person": {
+        "_Id": "4c75cMjtA0uWfk----9F-Bg-",
+        
+        "addrs": [
+            
+            {
+               "addrType": "1",
+                "taxAddressId": "4c75c2Cy594y4-----5F--o-",
+                "priority": 2,
+                "validFromDtm": "2018-02-22T21:45:33.444Z",
+                "verifyDtm": "2018-02-22T21:45:33.444Z"
+            }
+        ],
+        "ageBracket": "4",
+        "aliases": [
+            "QA"
+        ],
+        "birthDate": "1980-02-22",
+        "contactPref": "0",
+        "cntry": "US",
+        "education": "0",
+        "emails": [
+            {
+                "data": "testwithitin1@levvel.com",
+                "emailType": "0",
+                "label": "string",
+                "verifyDtm": "2018-02-22T21:45:33.444Z"
+            }
+        ],
+        "employmentStatus": "0",
+        "ethnicity": "0",
+        "firstName": "TestU",
+        "gender": "1",
+        "govtIds": [
+            {
+                "cntry": "US",
+                "docType": "1",
+                "verifyDtm": "2018-02-22T21:45:33.444Z"
+            }
+        ],
+        "incBracket": "0",
+        "lastName": "QA",
+        "maritalStatus": "0",
+        "militaryStatus": "5",
+        "moGrossInc": 20000,
+        "name": "TestU QA",
+        "nbrInHhold": 3,
+        "occupation": "27",
+        "phones": [
+            {
+                "data": "215-555-1212",
+                "label": "Home",
+                "phoneType": "0",
+                "verifyDtm": "2018-02-22T21:45:33.444Z"
+            }
+        ],
+        "preferAddrId": "{{.Address}}",
+        "preferEmailId": 1,
+        "preferPhoneId": 1,
+        "preferredLanguage": "en-US",
+        "prefix": "Mrs",
+        "residencyStatus": "1",
+        "spouse": "Mary",
+        "tin": "100000002",
+        "tinType": 2,
+        "webAddr": "www.disney.com"
+    },
+    "customer": {
+
+        "customerGroup": "2"
+    }
+}

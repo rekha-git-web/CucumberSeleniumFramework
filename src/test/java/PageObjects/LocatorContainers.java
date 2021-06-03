@@ -8,7 +8,8 @@ public class LocatorContainers
 {
 	  public BaseContainer BaseContainer(WebDriver driver)
       {
-		  return new BaseContainer(driver.findElement(By.className("Login__Form")));
+		 // return new BaseContainer(driver.findElement(By.className("Login__Form")));
+		  return new BaseContainer(driver.findElement(By.tagName("form")));
       }
       
 	  public FormContainer FormContainer(WebDriver driver, String formName)
@@ -17,7 +18,7 @@ public class LocatorContainers
 	      
 	      WebElement ExpectedField = null;
 	      for(WebElement field : fields){
-	    	  //System.out.println("Here is the field name: " +field.getAttribute("value"));
+	    	  System.out.println("Here is the form name: " +field.getAttribute("action"));
 	            if(field.getAttribute("action").contains(formName)){
 	            	ExpectedField = field;
 	            }

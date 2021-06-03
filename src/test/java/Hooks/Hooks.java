@@ -16,7 +16,6 @@ public class Hooks {
 
         String browser = System.getProperty("browser");
         System.setProperty("webdriver.chrome.driver","C:\\Users\\UmaBolisetty\\Downloads\\chromedriver_win32\\chromedriver.exe");
-
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("['start-maximized']");
                 driver = new ChromeDriver(chromeOptions);

@@ -27,13 +27,45 @@ public class TestSteps extends BasePage {
     	_lContainers.BaseContainer(driver).GetFieldByPlaceholderName("Password").sendKeys(Password);
     	_lContainers.BaseContainer(driver).GetButtonByName("Login").click();
     	
-    	_lContainers.FormContainer(driver, "CustomerSearch").GetSpanByClassName("close").click();
-    	_lContainers.FormContainer(driver, "CustomerSearch").GetIconByName("Tasks").click();
-    	
     	Thread.sleep(1000);
-    	_lContainers.FormContainer(driver, "CustomerSearch").GetLinkSpanByName("Add New Account").click();
-    	
+
     }
+    
+    @Then("I enter into placeholder field {string} data {string}")
+    public void i_enter_into_placeholder_field_data(String fieldName, String data) throws InterruptedException {
+    	Thread.sleep(1000);
+    	_lContainers.BaseContainer(driver).GetFieldByPlaceholderName(fieldName).sendKeys(data);
+       
+    }
+    
+    @Then("I click on {string} span on {string}")
+    public void i_click_on_span_on(String spanName, String page) throws InterruptedException {
+
+    	Thread.sleep(1000);
+    	_lContainers.FormContainer(driver, page).GetSpanByClassName(spanName).click();
+    }
+
+    @Then("I click on {string} button on {string}")
+    public void i_click_on_button_on(String buttonName, String page) throws InterruptedException {
+
+    	Thread.sleep(1000);
+    	_lContainers.FormContainer(driver, page).GetButtonByName(buttonName).click();
+    }
+    
+    @Then("I click on icon {string} on {string}")
+    public void i_click_on_icon_on(String iconName, String page) throws InterruptedException {
+
+    	Thread.sleep(1000);
+    	_lContainers.FormContainer(driver, page).GetIconByName(iconName).click();
+    }
+
+    @Then("I click on link {string} on {string}")
+    public void i_click_on_link_on(String linkName , String page) throws InterruptedException {
+
+    	Thread.sleep(1000);
+    	_lContainers.FormContainer(driver, page).GetLinkSpanByName(linkName).click();
+    }
+
     
     @Then("submit the data")
     public void submit_the_data(DataTable dataTable) throws InterruptedException {
@@ -43,7 +75,19 @@ public class TestSteps extends BasePage {
     	 for (Map<String, String> stepData : rows) {
     		 System.out.println("data " + stepData.get("FormName"));
     		 System.out.println("_______");
+    		 Thread.sleep(2000); 
+    		 if(stepData.get("Data") == "click")
+    		 {
+    			 
+    			 _lContainers.FormContainer(driver, stepData.get("FormName")).GetButtonByName(stepData.get("FieldName")).click();
+    			 Thread.sleep(5000);  
+    		 }
+    		 
+    		 else
+    		 {
     		 _lContainers.FormContainer(driver, stepData.get("FormName")).GetFieldByLabel(stepData.get("FieldName")).sendKeys(stepData.get("Data"));
+    		//_lContainers.FormContainer(driver, stepData.get("FormName")).GetFieldByPlaceholderName(stepData.get("FieldName")).sendKeys(stepData.get("Data"));
+    		 }
     		 
     	    }
     	
@@ -59,6 +103,14 @@ public class TestSteps extends BasePage {
     	System.out.println("_______####################RESPONSE DATA END #######################______");
     	
     	assertEquals("200", result , "response code is incorrect");
+    }
+    
+    @Given("I invoke finxact API using method {string} and body from {string}")
+    public void i_invoke_finxact_api_using_method_and_body_from(String string, String string2) {
+    	System.out.println("_______####################JSON data #######################______");
+    	String jsonString = JSONParser.JSON_Object_ByFileName("Address");
+    	System.out.println(jsonString);
+       
     }
     
 }
