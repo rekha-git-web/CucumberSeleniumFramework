@@ -18,7 +18,8 @@
 #Sample Feature Definition Template
 Feature: Home page
 
-  Scenario: 
+@Login @smoketest
+  Scenario: test feature
     Given A user navigates to HomePage "https://demo-savana.savanainc.com/nGageBanking/Login.aspx"
     Then I login using "Ubolisetty" "Demo@s123"
     And I click on "close" button on "CustomerSearch"
@@ -29,4 +30,9 @@ Feature: Home page
       | AccountCreate | Account Nickname | TestNickName_auto |
       | AccountCreate | Account Title    | TestTitle_auto    |
       | AccountCreate | Reference ID     |              1234 |
-    Then I verify finxact using the method "GET" and path "trn"
+   
+   
+   Scenario: API
+  # Then I verify finxact using the method "GET" and path1 "model" path2  "trn"
+  Given I invoke finxact API using method "POST" path1 "model" path2  "addr" and body from "Address.json"
+   Given I invoke finxact API using method "POST" path1 "core" path2  "customer" and body from "Customer.json"
